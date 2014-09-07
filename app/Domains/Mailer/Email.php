@@ -20,7 +20,7 @@ class Email {
 
         $mailer = Swift_Mailer::newInstance($transport);
 
-        $message = \Swift_Message::newInstance('Domains you registered')
+        $message = \Swift_Message::newInstance('The following domains will expire in the next 7 days')
             ->setFrom(['fredo.f@gmail.com' => 'Fred Ferré'])
             ->setTo(['pierre@pierreferre.com' => 'Pierre Ferré'])
             ->setBody($values)
