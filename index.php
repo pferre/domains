@@ -1,5 +1,5 @@
 <?php
 
-require 'vendor/autoload.php';
-require 'config/database.php';
-require 'start.php';
+require_once 'vendor/autoload.php';
+require_once 'config/database.php';
+require_once 'bootstrap/start.php';

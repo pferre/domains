@@ -1,0 +1,5 @@
+suites:
+  domains_suite:
+    namespace: Domains
+    src_path: app
+    spec_path: app/Domains/Tests
