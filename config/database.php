@@ -1,5 +1,7 @@
 <?php
 
+Dotenv::load(__DIR__, '../.env');
+
 use Illuminate\Database\Capsule\Manager as Capsule;
 
 $capsule = new Capsule();
