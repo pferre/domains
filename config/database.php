@@ -8,8 +8,8 @@ $capsule->addConnection([
     'driver'    =>  'mysql',
     'host'      =>  'localhost',
     'database'  =>  'domains',
-    'username'  =>  'root',
-    'password'  =>  '',
+    'username'  =>  getenv('DB_USERNAME'),
+    'password'  =>  getenv('DB_PASSWORD'),
     'charset'   =>  'utf8',
     'collation' =>  'utf8_unicode_ci',
     'prefix'    =>  ''
