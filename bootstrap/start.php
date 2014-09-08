@@ -5,7 +5,7 @@ use Domains\Mailer\Email;
 $domains = new Domains\Check;
 $forRenewals = $domains->getRenewalDates();
 
-if ($forRenewals) {
+if (empty($forRenewals)) {
 	$email = new Email;
 	$email->sendMessage($forRenewals);
 }
