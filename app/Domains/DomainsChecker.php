@@ -17,14 +17,20 @@ class DomainsChecker
      * @var int
      */
     private $noOfDaysBeforeSendingWarningMessage = 120;
+    /**
+     * @var DomainName
+     */
+    private $domains;
 
 
     /**
      * @param Carbon $carbon
+     * @param DomainName $domains
      */
-    function __construct(Carbon $carbon = null)
+    function __construct(Carbon $carbon = null, DomainName $domains = null)
     {
         $this->carbon = $this->createNewCarbon() ?: $carbon;
+        $this->domains = $this->createDomainNameInstance() ?: $domains;
     }
 
     /**
@@ -42,7 +48,7 @@ class DomainsChecker
      */
     public function getRenewalDates()
     {
-        $collection = $this->getAllDomainsAsCollection();
+        $collection = $this->domains->getAllDomains();
 
         $renewals = $collection->filter(function($dates)
         {
@@ -58,13 +64,22 @@ class DomainsChecker
         return $renewals->isEmpty() ? null : $renewals;
     }
 
+
     /**
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
     public function getAllDomainsAsCollection()
     {
         $domain = new DomainName();
-        $collection = $domain->all();
-        return $collection;
+
+        return $domain->getAllDomains();
+    }
+
+    /**
+     * @return DomainName
+     */
+    public function createDomainNameInstance()
+    {
+        return new DomainName();
     }
 }
