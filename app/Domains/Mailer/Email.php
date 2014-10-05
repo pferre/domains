@@ -11,7 +11,7 @@ use Swift_Mailer;
  */
 class Email {
 
-    public function sendMessage($values)
+    public function send($domains)
     {
         $transport = \Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, 'ssl')
             ->setUsername(getenv('EMAIL_USERNAME'))
@@ -20,12 +20,16 @@ class Email {
 
         $mailer = Swift_Mailer::newInstance($transport);
 
-        $message = \Swift_Message::newInstance('The following domains will expire in the next 7 days')
+        $message = \Swift_Message::newInstance('The following domains will expire soon')
             ->setFrom(['pierre@craftwb.co.uk' => 'Craftwb'])
             ->setTo(['pierre@pierreferre.com' => 'Pierre Ferré'])
-            ->setBody($values)
+            ->setBody($domains)
             ;
-        $mailer->send($message);
-        echo 'Sending email ....'."\n";
+
+        try {
+            $mailer->send($message);
+        } catch(\Swift_SwiftException $e) {
+            return $e->getMessage();
+        }
     }
 } 

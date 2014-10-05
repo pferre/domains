@@ -1,15 +1,17 @@
 <?php
 
 use Domains\Mailer\Email;
+use Domains\DomainsChecker;
 
-$domains = new Domains\Check;
-$forRenewals = $domains->getRenewalDates();
+$domains = new DomainsChecker();
+$domainsForRenewals = $domains->getRenewalDates();
 
-if (!isset($forRenewals)) {
-	$email = new Email;
-	$email->sendMessage($forRenewals);
+if ( !empty($domainsForRenewals ) ) {
+    $email = new Email();
+    $email->send($domainsForRenewals);
+    exit;
 }
 
-echo "Nothing to send...";
+echo "No domains set to expire in the next 90 days";
 
 
