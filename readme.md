@@ -3,7 +3,7 @@ Domains
 Simple tool which checks when domains I own are up for renewals
 
 ##What does it do
-1. Warns when domains have got 1 week before expiring
+1. Warns when domains are near expiry date (currently set to 120 days)
 2. Sends me an email with details of the domains which will expire
 
 ##Todo Features
