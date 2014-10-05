@@ -21,7 +21,7 @@ class Email {
         $mailer = Swift_Mailer::newInstance($transport);
 
         $message = \Swift_Message::newInstance('The following domains will expire soon')
-            ->setFrom(['pierre@craftwb.co.uk' => 'Craftwb'])
+            ->setFrom(['pierre@craftwb.co.uk' => 'Domain Checker at ChezFerre'])
             ->setTo(['pierre@pierreferre.com' => 'Pierre Ferré'])
             ->setBody($domains)
             ;

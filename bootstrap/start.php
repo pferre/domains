@@ -12,6 +12,4 @@ if ( !empty($domainsForRenewals ) ) {
     exit;
 }
 
-echo "No domains set to expire in the next 90 days";
-
 
