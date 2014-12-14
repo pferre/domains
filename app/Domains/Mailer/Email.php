@@ -23,7 +23,7 @@ class Email {
         $message = \Swift_Message::newInstance('The following domains will expire soon')
             ->setFrom(['pierre@craftwb.co.uk' => 'Domain Checker at ChezFerre'])
             ->setTo(['pierre@pierreferre.com' => 'Pierre Ferré'])
-            ->setBody($domains)
+            ->setBody($domains, 'text/html')
             ;
 
         try {

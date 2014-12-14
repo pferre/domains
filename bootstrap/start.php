@@ -7,9 +7,11 @@ $domains = new DomainsChecker();
 $domainsForRenewals = $domains->getRenewalDates();
 
 if ( !empty($domainsForRenewals ) ) {
+
     $email = new Email();
     $email->send($domainsForRenewals);
     exit;
+    
 }
 
 
