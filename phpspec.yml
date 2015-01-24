@@ -1,5 +1,4 @@
 suites:
-  domains_suite:
+  main_suite:
     namespace: Domains
-    src_path: app
-    spec_path: app/Domains/Tests
+    psr4_prefix: Domains

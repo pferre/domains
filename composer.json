@@ -1,13 +1,24 @@
 {
+    "name": "pferre/domains",
+    "type": "domain-checker",
+    "description": "A script which checks for domains expiry dates",
+    "keywords": ["domains", "checker", "script", "utility"],
+    "authors": [
+        {
+            "name": "Pierre Ferré",
+            "email": "pierre@pierreferre.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Domains\\": "src/"
+        }
+    },
     "require": {
+        "php": ">=5.4",
         "illuminate/database": "4.1.*",
         "swiftmailer/swiftmailer": "5.2.*",
         "vlucas/phpdotenv": "1.0.*"
-    },
-    "autoload": {
-        "psr-4": {
-            "Domains\\": "app/"
-        }
     },
     "require-dev": {
         "behat/behat": "~3.0.6",

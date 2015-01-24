@@ -16,7 +16,7 @@ class DomainsChecker
     /**
      * @var int
      */
-    private $noOfDaysBeforeSendingWarningMessage = 120;
+    private $noOfDaysBeforeSendingWarningMessage = 60;
     /**
      * @var DomainName
      */
@@ -30,6 +30,7 @@ class DomainsChecker
     function __construct(Carbon $carbon = null, DomainName $domains = null)
     {
         $this->carbon = $this->createNewCarbon() ?: $carbon;
+
         $this->domains = $this->createDomainNameInstance() ?: $domains;
     }
 
@@ -39,6 +40,14 @@ class DomainsChecker
     protected function createNewCarbon()
     {
         return new Carbon();
+    }
+
+    /**
+     * @return DomainName
+     */
+    public function createDomainNameInstance()
+    {
+        return new DomainName();
     }
 
     /**
@@ -75,11 +84,4 @@ class DomainsChecker
         return $domain->getAllDomains();
     }
 
-    /**
-     * @return DomainName
-     */
-    public function createDomainNameInstance()
-    {
-        return new DomainName();
-    }
 }
