@@ -3,7 +3,7 @@
 namespace Domains;
 
 use Carbon\Carbon;
-use Domains\Models\DomainName;
+use Domains\Model\DomainName;
 
 class DomainsChecker
 {
