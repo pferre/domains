@@ -1,8 +1,8 @@
 {
     "name": "pferre/domains",
     "type": "domain-checker",
-    "description": "A script which checks for domains expiry dates",
-    "keywords": ["domains", "checker", "script", "utility"],
+    "description": "A PHP utility which checks for domains expiry dates",
+    "keywords": ["domains", "checker", "script", "utility", "PHP"],
     "authors": [
         {
             "name": "Pierre Ferré",
